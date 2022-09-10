@@ -109,14 +109,14 @@ console.log(nuevosProductos); */
 let total = numeros.reduce((acumulador, item) => acumulador + item, 0);
 console.log(total); */
 
-/* const productos = [
+/*  const productos = [
   { id: 1, nombre: "camisa", precio: 1000 },
   { id: 2, nombre: "gorra", precio: 700 },
   { id: 3, nombre: "pantalon", precio: 1250 },
   { id: 4, nombre: "zapato", precio: 2000 },
 ];
 let total = productos.reduce((acumulador, item) => acumulador + item.precio, 0);
-console.log(total); */
+console.log(total);  */
 
 /* const numeros = [ 40, 1, 5, 200 ];
 numeros.sort((a, b) => a - b);  // [ 1, 5, 40, 200 ]
