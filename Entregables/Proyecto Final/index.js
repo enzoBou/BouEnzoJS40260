@@ -84,21 +84,36 @@ let preworkFilter = prework.find(item => item.nombre === nombre);  */
   prework
 ]; */
 
-//CARRITO DE COMPRAS
 
+
+let contenedor = document.getElementById("contenedor");
 const productos = [
-    { id: 01, nombre: "Spinning", horario: "20:00hs", precio: 2000, cupos: 10 },
-    { id: 02, nombre: "Musculacion", horario: "09:00 a 21:00hs", precio: 2500, cupos: 200 },
-    { id: 03, nombre: "Funcional", horario: "19:00hs", precio: 2000, cupos: 20 },
-    { id: 04, nombre: "Jumping", horario: "18:00hs", precio: 2500, cupos: 10 },
+    { id: 01, nombre: "Spinning", horario: "Lunes y Miercoles 20:00hs", precio: 2000, cupos: 10 },
+    { id: 02, nombre: "Musculacion", horario: "Lunes a Viernes 09:00 a 21:00hs", precio: 2800, cupos: 200 },
+    { id: 03, nombre: "Funcional", horario: "Martes y Jueves 19:00hs", precio: 2200, cupos: 20 },
+    { id: 04, nombre: "Jumping", horario: "Martes y Jueves 18:00hs", precio: 2500, cupos: 10 },
 ];
-let carrito = [];
 
-let seleccion = prompt("Desea comprar alguna membresia si o no")
+let precio = parseInt(prompt("Ingrese el valor minimo"));
+let filtrados = productos.filter(item => item.precio > precio);
+for(const producto of filtrados){
+  let div = document.createElement("div");
+  div.innerHTML = `
+    <h2>${producto.nombre}</h2>
+    <p>ID: ${producto.id}</p>
+    <p>Horarios: ${producto.horario}</p>
+    <p>Cantidad de cupos: ${producto.cupos}</p>
+    <b>$${producto.precio}</b>
+  `;
+  contenedor.append(div);
+}
+let carrito = [];
+const respuesta = () => {
+    let seleccion = prompt("Desea comprar alguna membresia ingrese si o no")
 
 while(seleccion != "si" && seleccion != "no"){
     alert("Por favor ingresar si o no")
-    seleccion = prompt("Hola desea comprar una membresia si o no")
+    seleccion = prompt("Hola desea comprar una membresia ingrese si o no")
 }
 if(seleccion == "si"){
     alert("Nuestras clases son")
@@ -107,23 +122,22 @@ if(seleccion == "si"){
 }else if(seleccion == "no"){
     alert("Gracias por visitar nuestra pagina, hasta pronto!")
 }
-
 while(seleccion != "no"){
-    let producto = prompt("agrega un producto a tu carrito")
+    let producto = prompt("Agrega un producto a tu carrito")
     let precio = 0
 
-    if(producto == "Spinning" || producto == "Musculacion" || producto == "Funcional" || producto == "Jumping"){
+    if(producto == "spinning" || producto == "musculacion" || producto == "funcional" || producto == "jumping"){
         switch(producto) {
-            case "Spinning":
+            case "spinning":
                 precio = 2000
                 break;
-            case "Musculacion":
-                precio = 2500
+            case "musculacion":
+                precio = 2800
                 break;
-            case "Funcional":
-                precio = 2000
+            case "funcional":
+                precio = 2200
                 break;
-            case "Jumping":
+            case "jumping":
                 precio = 2500
                 break;
             default:
@@ -146,8 +160,11 @@ while(seleccion != "no"){
         })
         break;
     }
-}
 const total = carrito.reduce((acumulador, el) => acumulador + el.precio * el.usuarios, 0)
 alert(`El total a pagar por su compra es: ${total}`);
-
-
+}
+}
+let boton = document.getElementById("boton5");
+boton.innerHTML = `
+Iniciar compra`
+boton.addEventListener("click", respuesta);
