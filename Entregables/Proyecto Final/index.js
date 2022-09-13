@@ -1,4 +1,4 @@
-class Suplementos{
+/* class Suplementos{
     constructor(id, nombre, precio, peso){
         this.id = id;
         this.nombre = nombre;
@@ -63,14 +63,91 @@ const membresias = [
     new Membresia (02, "Musculacion", "09:00 a 21:00hs", 2500, 200),
     new Membresia (03, "Funcional", "19:00hs", 2000, 20),
     new Membresia (04, "Jumping", "18:00hs", 2500, 10),
-]
-let membresiaFilter = membresias.find(item => item.nombre === nombre);
+] */
+/* let membresiaFilter = membresias.find(item => item.nombre === nombre);
 let pantalonFilter = pantalon.find(item => item.nombre === nombre);
 let camperaFilter = campera.find(item => item.nombre === nombre);
 let remeraFilter = remera.find(item => item.nombre === nombre);
 let creatinaFilter = creatina.find(item => item.nombre === nombre);
 let proteinaFilter = proteina.find(item => item.nombre === nombre);
-let preworkFilter = prework.find(item => item.nombre === nombre);
+let preworkFilter = prework.find(item => item.nombre === nombre);  */
 
+//CARRITO DE COMPRAS            
+
+/* const productos = [
+  membresias,
+  pantalon,
+  campera,
+  remera,
+  creatina,
+  proteina,
+  prework
+]; */
+
+//CARRITO DE COMPRAS
+
+const productos = [
+    { id: 01, nombre: "Spinning", horario: "20:00hs", precio: 2000, cupos: 10 },
+    { id: 02, nombre: "Musculacion", horario: "09:00 a 21:00hs", precio: 2500, cupos: 200 },
+    { id: 03, nombre: "Funcional", horario: "19:00hs", precio: 2000, cupos: 20 },
+    { id: 04, nombre: "Jumping", horario: "18:00hs", precio: 2500, cupos: 10 },
+];
+let carrito = [];
+
+let seleccion = prompt("Desea comprar alguna membresia si o no")
+
+while(seleccion != "si" && seleccion != "no"){
+    alert("Por favor ingresar si o no")
+    seleccion = prompt("Hola desea comprar una membresia si o no")
+}
+if(seleccion == "si"){
+    alert("Nuestras clases son")
+    let todoslosProductos = productos.map((producto) => producto.nombre + " $" + producto.precio);
+    alert(todoslosProductos.join(" / "))
+}else if(seleccion == "no"){
+    alert("Gracias por visitar nuestra pagina, hasta pronto!")
+}
+
+while(seleccion != "no"){
+    let producto = prompt("agrega un producto a tu carrito")
+    let precio = 0
+
+    if(producto == "Spinning" || producto == "Musculacion" || producto == "Funcional" || producto == "Jumping"){
+        switch(producto) {
+            case "Spinning":
+                precio = 2000
+                break;
+            case "Musculacion":
+                precio = 2500
+                break;
+            case "Funcional":
+                precio = 2000
+                break;
+            case "Jumping":
+                precio = 2500
+                break;
+            default:
+                break;
+        }
+    let usuarios = parseInt(prompt("Cuantas membresias desea comprar?"))
+
+    carrito.push({producto, usuarios, precio})
+    console.log(carrito)
+    }else{
+        alert("No tenemos ese producto");
+    }
+
+    seleccion = prompt("Desea seguir comprando?")
+    while(seleccion == "no"){
+        alert("Gracias por la compra")
+        carrito.forEach((carritoFinal) => {
+            console.log(`producto: ${carritoFinal.producto}, unidades: ${carritoFinal.usuarios}, 
+            total a pagar: ${carritoFinal.usuarios * carritoFinal.precio}`);
+        })
+        break;
+    }
+}
+const total = carrito.reduce((acumulador, el) => acumulador + el.precio * el.usuarios, 0)
+alert(`El total a pagar por su compra es: ${total}`);
 
 
