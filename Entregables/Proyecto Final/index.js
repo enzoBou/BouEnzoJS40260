@@ -1,170 +1,161 @@
-/* class Suplementos{
-    constructor(id, nombre, precio, peso){
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.peso = peso;
+ // Variables
+ const baseDeDatos = [
+    {
+        id: 1,
+        nombre: 'Spinning',
+        precio: 2500,
+        horario: `Lunes y Martes 20:00hs`
+    },
+    {
+        id: 2,
+        nombre: 'Musculacion',
+        precio: 2800,
+        horario: 'Lunes a viernes 09:00 a 21:00hs'
+    },
+    {
+        id: 3,
+        nombre: 'Funcional',
+        precio: 2000,
+        horario: 'Martes y jueves 14:00hs'
+    },
+    {
+        id: 4,
+        nombre: 'Jumping',
+        precio: 2200,
+        horario: 'Martes y jueves 20:00hs'
+    },
+    {
+        id: 5,
+        nombre: 'Kick Boxing',
+        precio: 2000,
+        horario: 'Miercoles y viernes 19:00hs'
+    },
+    {
+        id: 6,
+        nombre: 'Boxeo',
+        precio: 2200,
+        horario: 'Miercoles y viernes 20:00hs'
     }
-}
-const creatina = [
-    new Suplementos (01, "Creatina Star Nutrition Monohidratada", 10800, "300grs"),
-    new Suplementos (02, "Creatina Star Nutrition Monohidratada", 25600, "1000grs"),
-    new Suplementos (03, "Creatina Xtrenght Micronizada", 10000, "250grs"),
-    new Suplementos (04, "Creatina +Growth", 2490, "300grs"),
-];
-const proteina = [
-    new Suplementos (01, "Proteina Star Nutrition", 5510, "907grs"),
-    new Suplementos (02, "Proteina HTN Gold XT", 7000, "1015grs"),
-    new Suplementos (03, "Proteina ENA Sport True Made", 5599, "930grs"),
-    new Suplementos (04, "Proteina ENA Whey X-Pro", 7999, "907grs"),
-];
-const prework = [
-    new Suplementos (01,"Pre Entreno Star Nutrition Pump V8", 3499, "285grs"),
-    new Suplementos (02, "Pre Entreno Cellucor C4", 18499, "390grs"),
-    new Suplementos (03, "Pre Entreno Pre War ENA", 3499, "400grs"),
+
 ];
 
-class Ropa{
-    constructor(id, nombre, precio){
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-    }
-}
-const remera = [
-    new Ropa (01, "Remera Gris Logo Kohler Gym", 2499),
-    new Ropa (02, "Remera Blanca Logo Kohler Gym", 2499),
-    new Ropa (03, "Remera Negra Logo Kohler Gym", 2499),   
-]
-const campera = [
-    new Ropa (01, "Campera Gris Logo Kohler Gym", 3499),
-    new Ropa (02, "Campera Negra Logo Kohler Gym", 3499),
-]
-const pantalon = [
-    new Ropa (01, "Pantalon Negro Adidas", 2999),
-    new Ropa (02, "Pantalon Gris Adidas", 2999),
-    new Ropa (02, "Pantalon Negro Nike", 3299),
-    new Ropa (02, "Pantalon Gris Nike", 3299),
-    new Ropa (02, "Pantalon Liso Negro Logo Kohler Gym", 2999),
-] 
-
-class Membresia{
-    constructor(id, nombre, horario, precio, cupos){
-        this.id = id;
-        this.nombre = nombre;
-        this.horario = horario;
-        this.precio = precio;
-        this.cupos = cupos;
-    }
-}
-
-const membresias = [
-    new Membresia (01, "Spinning", "20:00hs", 2000, 10),
-    new Membresia (02, "Musculacion", "09:00 a 21:00hs", 2500, 200),
-    new Membresia (03, "Funcional", "19:00hs", 2000, 20),
-    new Membresia (04, "Jumping", "18:00hs", 2500, 10),
-] */
-/* let membresiaFilter = membresias.find(item => item.nombre === nombre);
-let pantalonFilter = pantalon.find(item => item.nombre === nombre);
-let camperaFilter = campera.find(item => item.nombre === nombre);
-let remeraFilter = remera.find(item => item.nombre === nombre);
-let creatinaFilter = creatina.find(item => item.nombre === nombre);
-let proteinaFilter = proteina.find(item => item.nombre === nombre);
-let preworkFilter = prework.find(item => item.nombre === nombre);  */
-
-//CARRITO DE COMPRAS            
-
-/* const productos = [
-  membresias,
-  pantalon,
-  campera,
-  remera,
-  creatina,
-  proteina,
-  prework
-]; */
-
-
-
-let contenedor = document.getElementById("contenedor");
-const productos = [
-    { id: 01, nombre: "Spinning", horario: "Lunes y Miercoles 20:00hs", precio: 2000, cupos: 10 },
-    { id: 02, nombre: "Musculacion", horario: "Lunes a Viernes 09:00 a 21:00hs", precio: 2800, cupos: 200 },
-    { id: 03, nombre: "Funcional", horario: "Martes y Jueves 19:00hs", precio: 2200, cupos: 20 },
-    { id: 04, nombre: "Jumping", horario: "Martes y Jueves 18:00hs", precio: 2500, cupos: 10 },
-];
-
-let precio = parseInt(prompt("Ingrese el valor minimo"));
-let filtrados = productos.filter(item => item.precio > precio);
-for(const producto of filtrados){
-  let div = document.createElement("div");
-  div.innerHTML = `
-    <h2>${producto.nombre}</h2>
-    <p>ID: ${producto.id}</p>
-    <p>Horarios: ${producto.horario}</p>
-    <p>Cantidad de cupos: ${producto.cupos}</p>
-    <b>$${producto.precio}</b>
-  `;
-  contenedor.append(div);
-}
 let carrito = [];
-const respuesta = () => {
-    let seleccion = prompt("Desea comprar alguna membresia ingrese si o no")
+const moneda = '$';
+const DOMitems = document.querySelector('#items');
+const DOMcarrito = document.querySelector('#carrito');
+const DOMtotal = document.querySelector('#total');
+const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+const DOMbotonComprar = document.querySelector('#boton-comprar');
+const miLocalStorage = window.localStorage;
 
-while(seleccion != "si" && seleccion != "no"){
-    alert("Por favor ingresar si o no")
-    seleccion = prompt("Hola desea comprar una membresia ingrese si o no")
+// Funciones
+
+function renderizarProductos() {
+    baseDeDatos.forEach((info) => {
+        const miNodo = document.createElement('div');
+        miNodo.classList.add('card', 'col-sm-6');
+        const miNodoCardBody = document.createElement('div');
+        miNodoCardBody.classList.add('card-body');
+        const miNodoTitle = document.createElement('h3');
+        miNodoTitle.classList.add('card-title');
+        miNodoTitle.textContent = info.nombre;
+        const miNodoHorario = document.createElement('h5');
+        miNodoHorario.classList.add('card-text');
+        miNodoHorario.textContent = info.horario;
+        const miNodoPrecio = document.createElement('p');
+        miNodoPrecio.classList.add('card-text');
+        miNodoPrecio.textContent = `${moneda}${info.precio}`;
+        const miNodoBoton = document.createElement('button');
+        miNodoBoton.classList.add('btn', 'btn-primary');
+        miNodoBoton.textContent = '+';
+        miNodoBoton.setAttribute('marcador', info.id);
+        miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+        miNodoCardBody.appendChild(miNodoTitle);
+        miNodoCardBody.appendChild(miNodoHorario);
+        miNodoCardBody.appendChild(miNodoPrecio);
+        miNodoCardBody.appendChild(miNodoBoton);
+        miNodo.appendChild(miNodoCardBody);
+        DOMitems.appendChild(miNodo);
+    });
 }
-if(seleccion == "si"){
-    alert("Nuestras clases son")
-    let todoslosProductos = productos.map((producto) => producto.nombre + " $" + producto.precio);
-    alert(todoslosProductos.join(" / "))
-}else if(seleccion == "no"){
-    alert("Gracias por visitar nuestra pagina, hasta pronto!")
+
+
+function anyadirProductoAlCarrito(evento) {
+    carrito.push(evento.target.getAttribute('marcador'))
+    renderizarCarrito();
+    guardarCarritoEnLocalStorage();
 }
-while(seleccion != "no"){
-    let producto = prompt("Agrega un producto a tu carrito")
-    let precio = 0
 
-    if(producto == "spinning" || producto == "musculacion" || producto == "funcional" || producto == "jumping"){
-        switch(producto) {
-            case "spinning":
-                precio = 2000
-                break;
-            case "musculacion":
-                precio = 2800
-                break;
-            case "funcional":
-                precio = 2200
-                break;
-            case "jumping":
-                precio = 2500
-                break;
-            default:
-                break;
-        }
-    let usuarios = parseInt(prompt("Cuantas membresias desea comprar?"))
+function renderizarCarrito() {
+    DOMcarrito.textContent = '';
+    const carritoSinDuplicados = [...new Set(carrito)];
+    carritoSinDuplicados.forEach((item) => {
+        const miItem = baseDeDatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+            return itemId === item ? total += 1 : total;
+        }, 0);
+        const miNodo = document.createElement('li');
+        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${moneda}`;
+        const miBoton = document.createElement('button');
+        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+        miBoton.textContent = 'X';
+        miBoton.style.marginLeft = '1rem';
+        miBoton.dataset.item = item;
+        miBoton.addEventListener('click', borrarItemCarrito);
+        miNodo.appendChild(miBoton);
+        DOMcarrito.appendChild(miNodo);
+    });
+    DOMtotal.textContent = calcularTotal();
+}
 
-    carrito.push({producto, usuarios, precio})
-    console.log(carrito)
-    }else{
-        alert("No tenemos ese producto");
+function borrarItemCarrito(evento) {
+    const id = evento.target.dataset.item;
+    carrito = carrito.filter((carritoId) => {
+        return carritoId !== id;
+    });
+    renderizarCarrito();
+    guardarCarritoEnLocalStorage();
+
+}
+
+function calcularTotal() {
+    return carrito.reduce((total, item) => {
+        const miItem = baseDeDatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        return total + miItem[0].precio;
+    }, 0).toFixed(2);
+}
+
+function vaciarCarrito() {
+    carrito = [];
+    renderizarCarrito();
+    localStorage.clear();
+
+}
+
+function guardarCarritoEnLocalStorage () {
+    miLocalStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function cargarCarritoDeLocalStorage () {
+    if (miLocalStorage.getItem('carrito') !== null) {
+        carrito = JSON.parse(miLocalStorage.getItem('carrito'));
     }
+}
 
-    seleccion = prompt("Desea seguir comprando?")
-    while(seleccion == "no"){
-        alert("Gracias por la compra")
-        carrito.forEach((carritoFinal) => {
-            console.log(`producto: ${carritoFinal.producto}, unidades: ${carritoFinal.usuarios}, 
-            total a pagar: ${carritoFinal.usuarios * carritoFinal.precio}`);
-        })
-        break;
-    }
-const total = carrito.reduce((acumulador, el) => acumulador + el.precio * el.usuarios, 0)
-alert(`El total a pagar por su compra es: ${total}`);
+function comprarCarrito () {
+    alert("Su compra se efectuo con exito, muchas gracias por confiar su salud en nosotros!");
 }
-}
-let boton = document.getElementById("boton5");
-boton.innerHTML = `
-Iniciar compra`
-boton.addEventListener("click", respuesta);
+
+// Eventos
+DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+DOMbotonComprar.addEventListener('click', comprarCarrito);
+
+// Inicio
+cargarCarritoDeLocalStorage();
+renderizarProductos();
+renderizarCarrito();

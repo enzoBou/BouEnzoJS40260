@@ -10,17 +10,65 @@
     <link rel="shortcut icon" href="../img/logokohler.png">
 </head>
 <body>
-   <div id="contenedor">
-   <!--  <button id="boton1"><p>SPINNING</p></button>
-    <button id="boton2">FUNCIONAL</button>
-    <button id="boton3">MUSCULACION</button>
-    <button id="boton4">JUMPING</button> -->
-    <button id="boton5"></button>
-    <!-- <button id="boton6">Finalizar compra</button> -->
-   </div>
-    
-    
-    
+    <nav>
+        <a class="logoIndex" href="../index.html"><img src="../img/logokohler.png" alt="logo" width="220px" height="200px"></a>
+        <div class="navBar">
+            <a href="../index.html">Home</a>
+            <a href="./actividades.html">Actividades</a>
+            <a href="./nosotros.html">Nosotros</a>
+        </div>
+        <div class="navRedes">
+            <button type="button" class="btn btn-outline-light">Inscribite</button>
+            <a href="https://www.instagram.com/kohlergymlaflorida/"><img src="../img/instagramwhite.png" alt="instagram" width="30px" height="30px"></a>
+            <a href=""><img src="../img/facebookwhite.png" alt="facebook"width="33px" height="32px"></a>
+            <a href=""><img src="../img/whatsapp.png" alt="whatsapp" width="30px" height="30px"></a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <main id="items" class="col-sm-8 row pt-5 pb-5"></main>
+            <aside class="col-sm-4 pt-5 p-3">
+                <h2>Carrito</h2>
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <p class="text-right">Total: &dollar;<span id="total"></span></p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                <button id="boton-comprar" class="btn btn-success">Comprar</button>
+            </aside>
+        </div>
+    </div>
+    <footer>
+        <div class="footerA">
+            <h3>Unite al equipo de Kohler Gym</h3>
+            <a href="">Convertirse en franquiciado</a>
+            <a href="">Trabaja con nosotros</a>
+        </div>
+        <div class="footerB">
+            <h3>Ayuda e Informacion</h3>
+            <a href="">Contacto</a>
+            <a href="">Aviso Legal</a>
+            <a href="">FAQ</a>
+        </div>
+        <div class="footerC">
+            <h3>Nosotros</h3>
+            <a href="">Nuestro salon</a>
+            <a href="">Musculacion</a>
+            <a href="">Spinning</a>
+            <a href="">Jumping</a>
+            <a href="">Funcional</a>
+        </div>
+        <div class="footerD">
+            <a href=""><img src="../img/logokohler.png" alt="logofooter" width="220px" height="200px"></a>    
+        </div>
+        <div class="footerE">
+            <a href=""><img src="../img/instagramwhite.png" alt="igfooter" width="30px" height="30px"></a>
+            <a href=""><img src="../img/facebookwhite.png" alt="fbfooter" width="30px" height="30px"></a>
+            <a href=""><img src="../img/whatsapp.png" alt="wpfooter" width="30px" height="30px"></a>
+        </div>
+        <div class="footerF">
+            <a href="">Av. 844 Nº455, Villa la Florida, Quilmes Oeste</a>
+        </div>
+    </footer>
 <script src="../index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
