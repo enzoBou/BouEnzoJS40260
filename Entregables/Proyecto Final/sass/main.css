@@ -92,6 +92,13 @@ main .carousel h1 {
   top: 300px;
   right: 200px;
 }
+main .carousel h5 {
+  font-size: 36px;
+  color: #ffffff;
+}
+main .carousel p {
+  font-size: 20px;
+}
 main .contenedor {
   display: flex;
   grid-column: 1/2;

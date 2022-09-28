@@ -131,10 +131,41 @@ function calcularTotal() {
 }
 
 function vaciarCarrito() {
-    carrito = [];
-    renderizarCarrito();
-    localStorage.clear();
-
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          })
+          swalWithBootstrapButtons.fire({
+            title: 'Desea eliminar su carrito?',
+            text: "Este cambio no se puede deshacer",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Si, eliminar carrito',
+            cancelButtonText: 'No, cancelar',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire(
+                'Eliminado!',
+                'Su carrito esta vacio',
+                'success'
+              )
+              carrito = [];
+              renderizarCarrito();
+              localStorage.clear();
+            } else if (
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire(
+                'Cancelado',
+                'Su carrito sigue lleno',
+                'error'
+              )
+            }
+          })
 }
 
 function guardarCarritoEnLocalStorage () {
@@ -148,7 +179,13 @@ function cargarCarritoDeLocalStorage () {
 }
 
 function comprarCarrito () {
-    alert("Su compra se efectuo con exito, muchas gracias por confiar su salud en nosotros!");
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Su compra ha sido realizada con exito',
+        showConfirmButton: false,
+        timer: 1500
+      })
 }
 
 // Eventos
