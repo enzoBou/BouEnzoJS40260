@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "nombre": "Spinning",
+        "precio": 2500,
+        "horario": "Lunes y Martes 20:00hs"
+    },
+    {
+        "id": 2,
+        "nombre": "Musculacion",
+        "precio": 2800,
+        "horario": "Lunes a viernes 09:00 a 21:00hs"
+    },
+    {
+        "id": 3,
+        "nombre": "Funcional",
+        "precio": 2000,
+        "horario": "Martes y jueves 14:00hs"
+    },
+    {
+        "id": 4,
+        "nombre": "Jumping",
+        "precio": 2200,
+        "horario": "Martes y jueves 20:00hs"
+    },
+    {
+        "id": 5,
+        "nombre": "Kick Boxing",
+        "precio": 2000,
+        "horario": "Miercoles y viernes 19:00hs"
+    },
+    {
+        "id": 6,
+        "nombre": "Boxeo",
+        "precio": 2200,
+        "horario": "Miercoles y viernes 20:00hs"
+    }
+
+]

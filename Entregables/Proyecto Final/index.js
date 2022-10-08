@@ -1,5 +1,5 @@
  // Variables
- const baseDeDatos = [
+/*  const baseDeDatos =  [
     {
         id: 1,
         nombre: 'Spinning',
@@ -37,7 +37,7 @@
         horario: 'Miercoles y viernes 20:00hs'
     }
 
-];
+] ; */
 
 let carrito = [];
 const moneda = '$';
@@ -50,7 +50,26 @@ const miLocalStorage = window.localStorage;
 
 // Funciones
 
-function renderizarProductos() {
+const renderProduct = async () => {
+    const response = await fetch("./data.json");
+    const baseDeDatos = await response.json();
+    let contenedor = document.getElementById("items");
+
+    baseDeDatos.forEach((item) => {
+        let li = document.createElement("li");
+        li.innerHTML = `
+        <h2>ID: ${item.id}</h2>
+        <h2>userId: ${item.userId}</h2>
+        <p>${item.title}</p>
+        <p>${item.body}</p>
+        <hr/>
+      `;
+  
+        contenedor.append(li);
+      });
+    }
+
+/* function renderizarProductos() {
     baseDeDatos.forEach((info) => {
         const miNodo = document.createElement('div');
         miNodo.classList.add('card', 'col-sm-6');
@@ -77,7 +96,8 @@ function renderizarProductos() {
         miNodo.appendChild(miNodoCardBody);
         DOMitems.appendChild(miNodo);
     });
-}
+} */
+
 
 
 function anyadirProductoAlCarrito(evento) {
@@ -147,8 +167,8 @@ function vaciarCarrito() {
             cancelButtonText: 'No, cancelar',
             reverseButtons: true
           }).then((result) => {
-            if (result.isConfirmed) {
-              swalWithBootstrapButtons.fire(
+            if (result.isConfirmed) {          //             
+              swalWithBootstrapButtons.fire(                                                    
                 'Eliminado!',
                 'Su carrito esta vacio',
                 'success'
@@ -157,7 +177,7 @@ function vaciarCarrito() {
               renderizarCarrito();
               localStorage.clear();
             } else if (
-              result.dismiss === Swal.DismissReason.cancel
+              result.dismiss === Swal.DismissReason.cancel  //
             ) {
               swalWithBootstrapButtons.fire(
                 'Cancelado',
@@ -167,15 +187,15 @@ function vaciarCarrito() {
             }
           })
 }
-
 function guardarCarritoEnLocalStorage () {
     miLocalStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-function cargarCarritoDeLocalStorage () {
-    if (miLocalStorage.getItem('carrito') !== null) {
+function cargarCarritoDeLocalStorage () {                      
+    /* if (miLocalStorage.getItem('carrito') !== null) {
         carrito = JSON.parse(miLocalStorage.getItem('carrito'));
-    }
+    } */
+    miLocalStorage.getItem('carrito') !== null && carrito == JSON.parse(miLocalStorage.getItem('carrito'));
 }
 
 function comprarCarrito () {
@@ -194,5 +214,15 @@ DOMbotonComprar.addEventListener('click', comprarCarrito);
 
 // Inicio
 cargarCarritoDeLocalStorage();
-renderizarProductos();
+renderProduct();
 renderizarCarrito();
+setTimeout(() => {
+    Swal.fire({
+        title: 'Ya conoces nuestras instalaciones?',
+        text: 'Visita nuestra web y encontra tu sucursal mas cercana',
+        imageUrl: 'https://s.yimg.com/ny/api/res/1.2/wJe7xKteba5kncM_Ea1qLA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTQ4MTtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/4FG.sdU5j_9HdkiZ3lq00w--~B/aD03MjI7dz0xNDQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/es/runner_s_world_es_761/498b596d34874cf88d174a3cbd099c92',
+        imageWidth: 450,
+        imageHeight: 200,
+        imageAlt: 'Musc',
+      })
+}, 2000)
