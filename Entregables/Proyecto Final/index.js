@@ -51,21 +51,20 @@ const miLocalStorage = window.localStorage;
 // Funciones
 
 const renderProduct = async () => {
-    const response = await fetch("./data.json");
+    const response = await fetch("/Entregables/Proyecto Final/data.json");
     const baseDeDatos = await response.json();
     let contenedor = document.getElementById("items");
 
     baseDeDatos.forEach((item) => {
-        let li = document.createElement("li");
-        li.innerHTML = `
-        <h2>ID: ${item.id}</h2>
-        <h2>userId: ${item.userId}</h2>
-        <p>${item.title}</p>
-        <p>${item.body}</p>
-        <hr/>
-      `;
-  
-        contenedor.append(li);
+        let div = document.createElement("div");
+        div.classList.add("card", "col-sm-6")
+        div.innerHTML = `
+        <h3 class="card-title">${item.nombre}</h3>
+        <p class="car-text">${item.horario}</p>
+        <p class="card-text">${item.precio}</p>
+        <input type="button" class="btn btn-primary marcador" value="Añadir producto al carrito" onclick="anyadirProductoAlCarrito"></input>
+        `;
+        contenedor.append(div);
       });
     }
 
@@ -101,7 +100,7 @@ const renderProduct = async () => {
 
 
 function anyadirProductoAlCarrito(evento) {
-    carrito.push(evento.target.getAttribute('marcador'))
+    carrito.push(evento.target.getAttribute("marcador"))
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
 }
