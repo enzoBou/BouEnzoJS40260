@@ -1,44 +1,3 @@
- // Variables
-/*  const baseDeDatos =  [
-    {
-        id: 1,
-        nombre: 'Spinning',
-        precio: 2500,
-        horario: `Lunes y Martes 20:00hs`
-    },
-    {
-        id: 2,
-        nombre: 'Musculacion',
-        precio: 2800,
-        horario: 'Lunes a viernes 09:00 a 21:00hs'
-    },
-    {
-        id: 3,
-        nombre: 'Funcional',
-        precio: 2000,
-        horario: 'Martes y jueves 14:00hs'
-    },
-    {
-        id: 4,
-        nombre: 'Jumping',
-        precio: 2200,
-        horario: 'Martes y jueves 20:00hs'
-    },
-    {
-        id: 5,
-        nombre: 'Kick Boxing',
-        precio: 2000,
-        horario: 'Miercoles y viernes 19:00hs'
-    },
-    {
-        id: 6,
-        nombre: 'Boxeo',
-        precio: 2200,
-        horario: 'Miercoles y viernes 20:00hs'
-    }
-
-] ; */
-
 let carrito = [];
 const moneda = '$';
 const DOMitems = document.querySelector('#items');
@@ -48,7 +7,6 @@ const DOMbotonVaciar = document.querySelector('#boton-vaciar');
 const DOMbotonComprar = document.querySelector('#boton-comprar');
 const miLocalStorage = window.localStorage;
 
-// Funciones
 
 const renderProduct = async () => {
     const response = await fetch("/Entregables/Proyecto Final/data.json");
@@ -60,44 +18,15 @@ const renderProduct = async () => {
         div.classList.add("card", "col-sm-6")
         div.innerHTML = `
         <h3 class="card-title">${item.nombre}</h3>
-        <p class="car-text">${item.horario}</p>
+        <p class="card-text">${item.horario}</p>
         <p class="card-text">${item.precio}</p>
-        <input type="button" class="btn btn-primary marcador" value="Añadir producto al carrito" onclick="anyadirProductoAlCarrito"></input>
+        <button type="button" class="btn btn-primary marcador" onclick="anyadirProductoAlCarrito()">+</button>
         `;
         contenedor.append(div);
       });
     }
 
-/* function renderizarProductos() {
-    baseDeDatos.forEach((info) => {
-        const miNodo = document.createElement('div');
-        miNodo.classList.add('card', 'col-sm-6');
-        const miNodoCardBody = document.createElement('div');
-        miNodoCardBody.classList.add('card-body');
-        const miNodoTitle = document.createElement('h3');
-        miNodoTitle.classList.add('card-title');
-        miNodoTitle.textContent = info.nombre;
-        const miNodoHorario = document.createElement('h5');
-        miNodoHorario.classList.add('card-text');
-        miNodoHorario.textContent = info.horario;
-        const miNodoPrecio = document.createElement('p');
-        miNodoPrecio.classList.add('card-text');
-        miNodoPrecio.textContent = `${moneda}${info.precio}`;
-        const miNodoBoton = document.createElement('button');
-        miNodoBoton.classList.add('btn', 'btn-primary');
-        miNodoBoton.textContent = '+';
-        miNodoBoton.setAttribute('marcador', info.id);
-        miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-        miNodoCardBody.appendChild(miNodoTitle);
-        miNodoCardBody.appendChild(miNodoHorario);
-        miNodoCardBody.appendChild(miNodoPrecio);
-        miNodoCardBody.appendChild(miNodoBoton);
-        miNodo.appendChild(miNodoCardBody);
-        DOMitems.appendChild(miNodo);
-    });
-} */
-
-
+// Funciones
 
 function anyadirProductoAlCarrito(evento) {
     carrito.push(evento.target.getAttribute("marcador"))
