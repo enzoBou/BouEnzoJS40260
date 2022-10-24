@@ -7,41 +7,39 @@
  const DOMbotonVaciar = document.querySelector('#boton-vaciar');
  const DOMbotonComprar = document.querySelector('#boton-comprar');
  const miLocalStorage = window.localStorage;
- 
- // Funciones
- const renderProduct = async () => {
-     const response = await fetch("/Proyecto Final/data.json");
-     const baseDeDatos = await response.json();
- };
- 
- function renderizarProductos() {
-     baseDeDatos.forEach((info) => {
-         const miNodo = document.createElement('div');
-         miNodo.classList.add('card', 'col-sm-6');
-         const miNodoCardBody = document.createElement('div');
-         miNodoCardBody.classList.add('card-body');
-         const miNodoTitle = document.createElement('h3');
-         miNodoTitle.classList.add('card-title');
-         miNodoTitle.textContent = info.nombre;
-         const miNodoHorario = document.createElement('h5');
-         miNodoHorario.classList.add('card-text');
-         miNodoHorario.textContent = info.horario;
-         const miNodoPrecio = document.createElement('p');
-         miNodoPrecio.classList.add('card-text');
-         miNodoPrecio.textContent = `${moneda}${info.precio}`;
-         const miNodoBoton = document.createElement('button');
-         miNodoBoton.classList.add('btn', 'btn-primary');
-         miNodoBoton.textContent = '+';
-         miNodoBoton.setAttribute('marcador', info.id);
-         miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-         miNodoCardBody.appendChild(miNodoTitle);
-         miNodoCardBody.appendChild(miNodoHorario);
-         miNodoCardBody.appendChild(miNodoPrecio);
-         miNodoCardBody.appendChild(miNodoBoton);
-         miNodo.appendChild(miNodoCardBody);
-         DOMitems.appendChild(miNodo);
-     });
- }
+
+async function renderProduct() {
+  const response = await fetch("/Entregables/ProyectoFinal/data.json");
+  const data = await response.json();
+  let contenedor = document.getElementById("items");
+
+  data.forEach((info) => {
+    const miNodo = document.createElement('div');
+    miNodo.classList.add('card', 'col-sm-6');
+    const miNodoCardBody = document.createElement('div');
+    miNodoCardBody.classList.add('card-body');
+    const miNodoTitle = document.createElement('h3');
+    miNodoTitle.classList.add('card-title');
+    miNodoTitle.textContent = info.nombre;
+    const miNodoHorario = document.createElement('h5');
+    miNodoHorario.classList.add('card-text');
+    miNodoHorario.textContent = info.horario;
+    const miNodoPrecio = document.createElement('p');
+    miNodoPrecio.classList.add('card-text');
+    miNodoPrecio.textContent = `${moneda}${info.precio}`;
+    const miNodoBoton = document.createElement('button');
+    miNodoBoton.classList.add('btn', 'btn-primary');
+    miNodoBoton.textContent = '+';
+    miNodoBoton.setAttribute('marcador', info.id);
+    miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+    miNodoCardBody.appendChild(miNodoTitle);
+    miNodoCardBody.appendChild(miNodoHorario);
+    miNodoCardBody.appendChild(miNodoPrecio);
+    miNodoCardBody.appendChild(miNodoBoton);
+    miNodo.appendChild(miNodoCardBody);
+    DOMitems.appendChild(miNodo);
+});
+};
  
  function anyadirProductoAlCarrito(evento) {
      carrito.push(evento.target.getAttribute('marcador'))
@@ -53,7 +51,7 @@
      DOMcarrito.textContent = '';
      const carritoSinDuplicados = [...new Set(carrito)];
      carritoSinDuplicados.forEach((item) => {
-         const miItem = baseDeDatos.filter((itemBaseDatos) => {
+         const miItem = carrito.filter((itemBaseDatos) => {
              return itemBaseDatos.id === parseInt(item);
          });
          const numeroUnidadesItem = carrito.reduce((total, itemId) => {
@@ -61,7 +59,7 @@
          }, 0);
          const miNodo = document.createElement('li');
          miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-         miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${moneda}`;
+         miNodo.textContent = `${numeroUnidadesItem} x ${item[0].nombre} - ${item[0].precio}${moneda}`;
          const miBoton = document.createElement('button');
          miBoton.classList.add('btn', 'btn-danger', 'mx-5');
          miBoton.textContent = 'X';
@@ -86,7 +84,7 @@
  
  function calcularTotal() {
      return carrito.reduce((total, item) => {
-         const miItem = baseDeDatos.filter((itemBaseDatos) => {
+         const miItem = data.filter((itemBaseDatos) => {
              return itemBaseDatos.id === parseInt(item);
          });
          return total + miItem[0].precio;
@@ -151,13 +149,13 @@
        })
  }
  
- // Eventos
+
  DOMbotonVaciar.addEventListener('click', vaciarCarrito);
  DOMbotonComprar.addEventListener('click', comprarCarrito);
  
  // Inicio
  cargarCarritoDeLocalStorage();
- renderizarProductos();
+ renderProduct();
  renderizarCarrito();
  setTimeout(() => {
      Swal.fire({
@@ -169,3 +167,4 @@
          imageAlt: 'Musc',
        })
  }, 2000)
+
