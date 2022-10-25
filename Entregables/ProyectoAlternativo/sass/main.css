@@ -1,0 +1,454 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  font-family: sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px;
+  background-color: #3a3a3a;
+}
+nav h1 {
+  display: flex;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  padding: 25px;
+  color: white;
+  justify-content: center;
+  padding-top: 60px;
+  font-size: 50px;
+  text-shadow: 2px 3px #333333;
+}
+nav h3 {
+  display: flex;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  text-align: center;
+  align-items: flex-end;
+  padding: 25px;
+  padding-bottom: 60px;
+  color: white;
+}
+nav .navBar {
+  display: flex;
+  grid-column: 1/2;
+  justify-content: center;
+  align-items: center;
+}
+nav .navBar a {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+nav .navRedes {
+  display: flex;
+  grid-column: 3/4;
+  justify-content: center;
+  align-items: center;
+}
+nav .navRedes a {
+  padding: 5px;
+  color: white;
+  text-decoration: none;
+}
+nav .navRedes button {
+  margin: 20px;
+}
+nav .logoIndex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav a:hover {
+  color: rgb(0, 123, 255);
+  transform: scale(1.01);
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 900px 300px 300px;
+}
+main .carousel {
+  display: flex;
+  grid-column: 1/3;
+  grid-row: 1/2;
+  width: 100vw;
+  min-height: 900px;
+}
+main .carousel h1 {
+  position: absolute;
+  top: 300px;
+  right: 200px;
+}
+main .carousel h5 {
+  font-size: 36px;
+  color: #ffffff;
+}
+main .carousel p {
+  font-size: 20px;
+}
+main .contenedor {
+  display: flex;
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+main .contenedor figure {
+  position: relative;
+  height: 300px;
+  width: 50vw;
+  max-width: 1000px;
+  min-width: 160px;
+  cursor: pointer;
+  overflow: hidden;
+}
+main .contenedor figure img {
+  width: 100%;
+  height: 100%;
+  transition: all 400ms ease-out;
+  will-change: transform;
+}
+main .contenedor figure .capa {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(58, 58, 58, 0.7);
+  transition: all 400ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+main .contenedor figure .capa h3 {
+  color: white;
+  font-weight: 400;
+  margin-bottom: 120px;
+  transition: all 400ms ease-out;
+  margin-top: 30px;
+}
+main .contenedor figure .capa p {
+  color: white;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+}
+main .contenedor1 {
+  display: flex;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+main .contenedor1 figure {
+  position: relative;
+  height: 300px;
+  width: 50vw;
+  max-width: 1000px;
+  min-width: 160px;
+  cursor: pointer;
+  overflow: hidden;
+}
+main .contenedor1 figure img {
+  width: 100%;
+  height: 100%;
+  transition: all 400ms ease-out;
+  will-change: transform;
+}
+main .contenedor1 figure .capa {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(58, 58, 58, 0.7);
+  transition: all 400ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+main .contenedor1 figure .capa h3 {
+  color: white;
+  font-weight: 400;
+  margin-bottom: 120px;
+  transition: all 400ms ease-out;
+  margin-top: 30px;
+}
+main .contenedor1 figure .capa p {
+  color: white;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+}
+main .contenedor2 {
+  display: flex;
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+main .contenedor2 figure {
+  position: relative;
+  height: 300px;
+  cursor: pointer;
+  width: 50vw;
+  overflow: hidden;
+  max-width: 1000px;
+  min-width: 160px;
+}
+main .contenedor2 figure img {
+  width: 100%;
+  height: 100%;
+  transition: all 400ms ease-out;
+  will-change: transform;
+}
+main .contenedor2 figure .capa {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(58, 58, 58, 0.7);
+  transition: all 400ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+main .contenedor2 figure .capa h3 {
+  color: white;
+  font-weight: 400;
+  margin-bottom: 120px;
+  transition: all 400ms ease-out;
+  margin-top: 30px;
+}
+main .contenedor2 figure .capa p {
+  color: white;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+}
+main .contenedor3 {
+  display: flex;
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+main .contenedor3 figure {
+  position: relative;
+  height: 300px;
+  cursor: pointer;
+  width: 50vw;
+  overflow: hidden;
+  max-width: 1000px;
+  min-width: 160px;
+}
+main .contenedor3 figure img {
+  width: 100%;
+  height: 100%;
+  transition: all 400ms ease-out;
+  will-change: transform;
+}
+main .contenedor3 figure .capa {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(58, 58, 58, 0.7);
+  transition: all 400ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+main .contenedor3 figure .capa h3 {
+  color: white;
+  font-weight: 400;
+  margin-bottom: 120px;
+  transition: all 400ms ease-out;
+  margin-top: 30px;
+}
+main .contenedor3 figure .capa p {
+  color: white;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+}
+main .contenedor figure:hover > .capa {
+  opacity: 1;
+  visibility: visible;
+}
+main .contenedor figure:hover > .capa h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+main .contenedor figure:hover > img {
+  transform: scale(1.3);
+}
+main .contenedor1 figure:hover > .capa {
+  opacity: 1;
+  visibility: visible;
+}
+main .contenedor1 figure:hover > .capa h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+main .contenedor1 figure:hover > img {
+  transform: scale(1.3);
+}
+main .contenedor2 figure:hover > .capa {
+  opacity: 1;
+  visibility: visible;
+}
+main .contenedor2 figure:hover > .capa h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+main .contenedor2 figure:hover > img {
+  transform: scale(1.3);
+}
+main .contenedor3 figure:hover > .capa {
+  opacity: 1;
+  visibility: visible;
+}
+main .contenedor3 figure:hover > .capa h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+main .contenedor3 figure:hover > img {
+  transform: scale(1.3);
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 350px 80px;
+  background-color: #3a3a3a;
+}
+footer .footerA {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+footer .footerA a {
+  text-decoration: none;
+  color: white;
+  padding-top: 15px;
+  font-size: 14px;
+}
+footer .footerA h3 {
+  color: white;
+  font-size: 20px;
+  padding-top: 30px;
+}
+footer .footerB {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+footer .footerB a {
+  text-decoration: none;
+  color: white;
+  padding-top: 15px;
+  font-size: 14px;
+}
+footer .footerB h3 {
+  color: white;
+  font-size: 20px;
+  padding-top: 30px;
+}
+footer .footerC {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+footer .footerC a {
+  text-decoration: none;
+  color: white;
+  padding-top: 15px;
+  font-size: 14px;
+}
+footer .footerC h3 {
+  color: white;
+  font-size: 20px;
+  padding-top: 30px;
+}
+footer .footerD {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  display: flex;
+  padding: 20px;
+  padding-right: 10px;
+  justify-content: center;
+}
+footer .footerE {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  display: flex;
+  padding-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+footer .footerE a {
+  padding: 10px;
+}
+footer .footerF {
+  grid-column: 1/5;
+  grid-row: 2/3;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px;
+}
+footer .footerF a {
+  text-decoration: none;
+  color: white;
+}
+footer a:hover {
+  color: rgb(0, 123, 255);
+  transform: scale(1.01);
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
+}
+
+.mainActividades {
+  display: grid;
+  grid-template-columns: 300px 500px 600px 500px;
+  grid-template-rows: 1fr 1fr;
+}
+
+#contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#boton5 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 650px;
+}/*# sourceMappingURL=main.css.map */
